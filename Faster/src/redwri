@@ -1,0 +1,6 @@
+!
+!
+!    Defining file units
+!
+      INTEGER IINN, IOUT
+      PARAMETER(IINN=5, IOUT=6)
