@@ -124,13 +124,23 @@
             WRITE(CEXP,'(a)') cexp(1:LEN(TRIM(cexp)))//TRIM(CPROC)
         ENDDO
 !
+!   new code here... 
+!   Try to circumvent the need for keeping faster in sleep mode, i.e. call to CHECK_AND_WAIT_FAST.
+!   Sorry, this is not working properly...
+!        open(unit=2821, iostat=statio, file='fast.bat', status='new')
+!        write(2821,*) trim(cexp)
+!        CALL EXECUTE_COMMAND_LINE ('start /b /WAIT fast.bat',EXITSTAT=ESTAT, &
+!                                  CMDSTAT=ISTAT, CMDMSG=CMSG)
+!   and this is neither working:
+!        cexp='start /b "MAIN" /WAIT cmd /k  '//trim(cexp)
+!
 !       Analyse the batch ista to iend in parallel that will create the output files.
         CALL EXECUTE_COMMAND_LINE (trim(CEXP),wait=.true.,EXITSTAT=ESTAT, &
                                    CMDSTAT=ISTAT, CMDMSG=CMSG)
         IF (ISTAT > 0) THEN
              PRINT *, 'Command execution failed with error ', TRIM(CMSG)
              PRINT *, 'A fatal error occured: Contact support'
-             STOP
+             STOP  
         ELSEIF (ISTAT < 0) THEN
             PRINT *, 'Command execution not supported'
             PRINT *, 'A fatal error occured: Contact support'
@@ -140,9 +150,9 @@
             PRINT *, 'Maestro file..: ',trim(fast%cmaestro(1))
             STOP   
          ENDIF
-         DO IPAR=ISTA,IEND
-            CALL CHECK_AND_WAIT_FAST(FOUT(IPAR))  ! wait for the batch of processes to create the output files.
-         ENDDO
+           DO IPAR=ISTA,IEND
+              CALL CHECK_AND_WAIT_FAST(FOUT(IPAR))  ! wait for the batch of processes to create the output files.
+           ENDDO
     ENDDO
 !
     print*,' real time openfast...', RealTime()-RT0  
