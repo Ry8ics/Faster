@@ -14,7 +14,6 @@
 !------------------------------------------
 !
 !    Read the requested output 
-     
      IF (LIST%CHANNEL)        CALL OUTCID()    !  print channel id's
      IF (LIST%NRUNS.GT.0)     CALL OUTCHA()    !  print channel results
      IF (LIST%NCHAN_REP.GT.0) CALL OUTSTA()    !  print statistics for all runs

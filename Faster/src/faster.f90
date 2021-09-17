@@ -67,7 +67,9 @@
 !   We now hopefully got some results, lets go on an open the binary files.
 !   This might become a bit tricky.. the files are binary and the record lenghts are needed.
 100 CONTINUE
-!
+!   
+    IF (.NOT.LSIMUL) GOTO 200 ! Simulation performed ?
+    
     CALL PFOPEN()       ! Open the result files
 !
     CALL MEMALY(ISTAT)  ! Allocate memory needed for any result, memaly?? well, why not?
