@@ -39,11 +39,15 @@
      CT0 = CPUTIME()    
 !
     NCORES=OMP_GET_MAX_THREADS()       ! maximum number of threads available
-    IF (NCORES.GT.1) NCORES=NCORES-1   ! Leave one spare core for other work, e.g. for this program
+!
+!    IF (NCORES.GT.1) NCORES=NCORES-1  ! Leave one spare core for other work, e.g. for this program
 !                                      ! This will also keep the computer from freezing and it should
 !                                      ! still be able to use it for some other work, e.g. writing these lines
 !                                      ! which I did while openfast was running. This program is also
 !                                      ! running along with openfast, altough it's mostly in sleep mode.
+!   Update by B.Melhus on 11.10.2021..:
+    NCORES=NCORES-2                    ! Try to keep 2 spare cores for other work. It has been found
+    IF (NCORES.LT.1) NCORES=1          ! that with only one spare core Openfast has a tendency to be hanging.
 !=======================================================================
     IF (trim(FAST%CMAESTRO(2)).EQ.'Maestro_turbsim_dummy.inp') THEN
         PRINT*,' MESSAGE : Maestro file for Turbsim is not given.'

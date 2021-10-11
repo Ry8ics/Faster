@@ -46,6 +46,7 @@
     CHARACTER*(*) CFILE   ! Keep the program occupied while some other process is creating CFILE.
     INTEGER IDELAY,ICOUNT,NLINES
     LOGICAL LEXIST,LCREAT
+    integer ichan,nchan,irow,ibitmp
     ICOUNT=0
     IDELAY=5     ! IDELAY IN SECONDS. Note it's an integer. Adjust as needed...
     LEXIST=.FALSE.
@@ -57,6 +58,18 @@
        write(*,'(a,i6,2x,a)') ' Waiting to open the output file....',icount,TRIM(CFILE)
        IF (ICOUNT.GT.INT(14400/IDELAY)) THEN ! Effectively relying on the file to open.. sooner or later.
            WRITE(*,*) ' Faster warning: File seems not to open ',trim(cfile)
+!          Just fill in some blanks and leave... something have went wrong...
+!          Open the result file ... 
+!           open (newunit=ibitmp, file = cfile, status='unknown') 
+!           nchan=res%ncol      ! sorry, not yet defined... and CFILE is needed to evaluate it... which do not exist...
+!           print*,' nchan...',nchan
+!           write(ibitmp,'(a1,1x,a10,<nchan>(2x,a10))') '#', 'channel', ('channel',ichan=2,nchan)
+!           write(ibitmp,'(a1,1x,a10,<nchan>(2x,a10))') '#', 'unit', ('unit',ichan=2,nchan)
+!           do irow=1,res%nrow         
+!              write(ibitmp,'(2x,f10.4,1p,<nchan>(2x,e10.3))') 0.0,(0.0,ichan=2,nchan)  
+!           enddo
+!           lexist=.true.
+!           close (ibitmp)
        ENDIF
     ENDDO
 !
