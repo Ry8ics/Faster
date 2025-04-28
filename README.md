@@ -16,7 +16,6 @@ id SIMP expand 1 'my simple faster'
 maestro openfast IEA-10.0-198-RWT.fst
 
 anal on
-
 list stat GenPwr
 
 which when run will apply the openfast file IEA-10.0-198-RWT.fst and list the statistics for the channel GenPwr.
