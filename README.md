@@ -16,5 +16,4 @@ where the textfile input_file.inp contains the required commands to faster. A ba
 - anal on
 - list stat GenPwr
 
-.. just forget the dots
 which when run will apply the openfast file IEA-10.0-198-RWT.fst and list the statistics for the channel GenPwr.
