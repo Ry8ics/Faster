@@ -6,6 +6,7 @@ The proposed tools are Visual Studio Community 2022 17.9 along with Intel OneAPI
 When installing Visual Studio Community the option "Desktop development with C++" must be checked on.
 
 If you do not care to compile the code, then just download Faster_including_user_manual_v2.zip under Releases and you are good to go. 
+
 Note that the file libiomp5md.dll must be accessible as well as faster.exe, i.e. both must be on the PATH.
 
 Read the attached user manual to learn how to create input files to Faster. Open a Windows Terminal and run Faster by issuing the command "faster<input_file.inp>output_file.out"
