@@ -12,7 +12,7 @@ Open a Windows Terminal and and run Faster by issuing the command "faster<input_
 where the textfile input_file.inp contains the required commands to faster. A basic input file to Faster may look like:
 
 - id SIMP expand 1 'my simple faster'
-  maestro openfast IEA-10.0-198-RWT.fst
+- maestro openfast IEA-10.0-198-RWT.fst
 - anal on
 - list stat GenPwr
 
