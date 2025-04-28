@@ -9,7 +9,7 @@ If you do not care to compile the code, then just download Faster_including_user
 Note that the file libiomp5md.dll must be accessible as well as faster.exe, i.e. both must be on the PATH.
 
 Read the attached user manual to learn how to create input files to Faster. Open a Windows Terminal and run Faster by issuing the command "faster<input_file.inp>output_file.out"
-where the textfile input_file.inp contains the required commands to faster. A basic input file to Faster may look like:
+where the textfile input_file.inp contains the required commands to Faster. A basic input file to Faster may look like:
 
 - id SIMP expand 1 'my simple faster'
 - maestro openfast IEA-10.0-198-RWT.fst
