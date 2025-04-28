@@ -1,5 +1,5 @@
 # Faster
-Manipulate Openfast input files, run the analyses in parallel and display the results in a user controlled manner.
+Manipulate Openfast input files, run the analyses automatically in parallel and display the results in a user controlled manner.
 
 The repository is developed in Visual Studio environment ready to be cloned.
 The proposed tools are Visual Studio Community 2022 17.9 along with Intel OneAPI Base Toolkit and Intel OneAPI HPC Toolkit. 
