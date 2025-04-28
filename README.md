@@ -11,11 +11,9 @@ Read the attached user manual to learn how to create input files to Faster.
 Open a Windows Terminal and and run Faster by issuing the command "faster<input_file.inp>output_file.out"
 where the textfile input_file.inp contains the required commands to faster. A basic input file to Faster may look like:
 
-id SIMP expand 1 'my simple faster'
-
-maestro openfast IEA-10.0-198-RWT.fst
-
-anal on
-list stat GenPwr
+#id SIMP expand 1 'my simple faster'
+#maestro openfast IEA-10.0-198-RWT.fst
+#anal on
+#list stat GenPwr
 
 which when run will apply the openfast file IEA-10.0-198-RWT.fst and list the statistics for the channel GenPwr.
